@@ -14,7 +14,6 @@ let autoprefixer = require('gulp-autoprefixer');
 let cssnano = require('gulp-cssnano');
 let header = require('gulp-header');
 let babel = require('gulp-babel');
-let sourcemaps = require("gulp-sourcemaps");
 
 // Misc/global vars
 let pkg = JSON.parse(fs.readFileSync('package.json'));

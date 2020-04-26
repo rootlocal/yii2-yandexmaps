@@ -13,6 +13,7 @@ build:
 
 clean:
 	$(info *** run clean ***)
+	rm -rf node_modules
 	cd src/assets && find . -name "*.*" -type f -delete && cd ../../
 
 help:
