@@ -12,7 +12,7 @@ composer require rootlocal/yii2-yandexmaps
 or add
 
 ```json
-"rootlocal/yii2-yandexmaps": "dev-master",
+"rootlocal/yii2-yandexmaps": "~1.0",
 ```
 
 to the require section of your composer.json.

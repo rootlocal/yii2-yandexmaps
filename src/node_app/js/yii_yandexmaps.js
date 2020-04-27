@@ -1,7 +1,6 @@
 (function ($, window, document, undefined) {
     let pluginName = 'yii_yandexmaps',
         defaults = {
-            // Default example config
             id: null,
             selector: null,
             options: {}

@@ -3,14 +3,13 @@
 /**
  * yii_yandexmaps Yii2 yandex maps widget
  * https://github.com/rootlocal/yii2-yandexmaps
- * Version - 1.0.0
+ * Version - 1.0.1
  *
  * Copyright (c) 2020
  */
 (function ($, window, document, undefined) {
   var pluginName = 'yii_yandexmaps',
       defaults = {
-    // Default example config
     id: null,
     selector: null,
     options: {}

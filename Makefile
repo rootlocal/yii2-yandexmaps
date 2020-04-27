@@ -17,4 +17,11 @@ clean:
 	cd src/assets && find . -name "*.*" -type f -delete && cd ../../
 
 help:
-	$(info make: install build clean help)
+	$(info make: install build clean help watch lint)
+
+watch:
+	$(info *** run watch ***)
+	$(GULP) watch
+
+lint:
+	$(GULP) watch lint
