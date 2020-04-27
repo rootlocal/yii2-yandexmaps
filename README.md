@@ -1,6 +1,8 @@
 Yii2 Yandex Maps API
 ====================
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/rootlocal/yii2-yandexmaps.svg)](https://packagist.org/packages/rootlocal/yii2-yandexmaps)
+
 * [Source code](https://github.com/rootlocal/yii2-yandexmaps)
 
 ## Install
