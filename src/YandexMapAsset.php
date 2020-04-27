@@ -13,20 +13,13 @@ use yii\web\AssetBundle;
 class YandexMapAsset extends AssetBundle
 {
     /** @var array */
-    public $css = [
-        'css/yii_yandexmaps' . (YII_DEBUG ? '' : '.min') . '.css',
-    ];
+    public $css = ['css/yii_yandexmaps' . (YII_DEBUG ? '' : '.min') . '.css'];
 
     /** @var array */
-    public $js = [
-        'js/yii_yandexmaps' . (YII_DEBUG ? '' : '.min') . '.js',
-    ];
+    public $js = ['js/yii_yandexmaps' . (YII_DEBUG ? '' : '.min') . '.js'];
 
     /** @var array */
-    public $depends = [
-        ApiYandexMapAsset::class,
-    ];
-
+    public $depends = [ApiYandexMapAsset::class];
 
     /**
      * {@inheritdoc}

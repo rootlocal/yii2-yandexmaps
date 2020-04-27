@@ -15,7 +15,39 @@ or add
 
 to the require section of your composer.json.
 
-#### usage:
+#### Example usage config 1:
+
+config: 
+```php
+<?php
+
+return [
+    
+    // ...
+    
+    'components' => [
+        
+        // ...
+    
+        'assetManager' => [
+            
+            'bundles' => [
+                \rootlocal\widgets\yandexmaps\ApiYandexMapAsset::class => [
+                    'version' => '2.1',
+                    'language' => 'ru-RU',
+                    'apiKey' => 'MY_API_KEY'
+                ],
+            ],
+            
+            // ...
+        ],
+        
+        // ...
+    ]
+];
+```
+
+view:
 ```php
 
 <?php
@@ -27,6 +59,41 @@ use rootlocal\widgets\yandexmaps\YandexMapWidget;
 ?>
 
 <?= YandexMapWidget::widget([
+        'content' => $this->render('yamapscontent'),
+        'htmlOptions' => ['class' => 'yamap'],
+        'options' => [
+            'center' => [xx.xx, yy.yy],
+            'zoom' => 16,
+            'controls' => ['zoomControl'],
+            'placemarks' => [
+                [
+                    'position' => [xx.xx, yy.yy],
+                    'content' => [
+                        'hintContent' => 'test',
+                        'balloonContentHeader' => 'test',
+                        'balloonContentBody' => 'test',
+                        'balloonContentFooter' => 'test',
+                    ],
+                ],
+            ],
+        ]
+    ]) ?>
+```
+
+#### Example usage config 2:
+
+```php
+<?php
+
+use yii\web\View;
+use rootlocal\widgets\yandexmaps\YandexMapWidget;
+
+/** @var View $this */
+?>
+
+<?= YandexMapWidget::widget([
+        'apiKey' => 'MY_API_KEY',
+        'language' => 'ru-RU',
         'content' => $this->render('yamapscontent'),
         'htmlOptions' => ['class' => 'yamap'],
         'options' => [

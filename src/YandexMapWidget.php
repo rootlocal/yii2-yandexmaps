@@ -2,6 +2,7 @@
 
 namespace rootlocal\widgets\yandexmaps;
 
+use Yii;
 use yii\base\Widget;
 use yii\web\View;
 use yii\helpers\Json;
@@ -20,7 +21,12 @@ class YandexMapWidget extends Widget
 {
     /** @var string */
     public const PLUGIN_NAME = 'yii_yandexmaps';
-
+    /** @var string Yandex Maps API version */
+    public $version;
+    /** @var string */
+    public $language;
+    /** @var string */
+    public $apiKey;
     /** @var string jquery id selector */
     public $selector;
     /** @var string */
@@ -46,6 +52,10 @@ class YandexMapWidget extends Widget
             $this->selector = 'map-' . $this->id;
         }
 
+        if ($this->language === null) {
+            $this->language = Yii::$app->language;
+        }
+
         $this->htmlOptions = ArrayHelper::merge(['class' => 'yii_yandexmaps'], $this->htmlOptions);
         $this->htmlOptions['id'] = $this->selector;
 
@@ -60,6 +70,25 @@ class YandexMapWidget extends Widget
      */
     public function registerAssets(View $view)
     {
+        $assetManager = Yii::$app->assetManager;
+        $bandleConfig = [];
+
+        if ($this->version !== null) {
+            $bandleConfig['version'] = $this->version;
+        }
+
+        if ($this->language !== null) {
+            $bandleConfig['language'] = $this->language;
+        }
+
+        if ($this->apiKey !== null) {
+            $bandleConfig['apiKey'] = $this->apiKey;
+        }
+
+        $assetManager->bundles = ArrayHelper::merge($assetManager->bundles, [
+            ApiYandexMapAsset::class => $bandleConfig
+        ]);
+
         YandexMapAsset::register($view);
     }
 
