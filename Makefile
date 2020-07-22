@@ -1,26 +1,31 @@
-NPM=npm
-GULP=gulp
+PHP := $$(which php)
+NPM := $$(which npm)
+GULP := $$(which gulp)
+GIT := $$(which git)
+COMPOSER := $$(which composer)
+RM ?= rm -f
+
+.PHONY: all install build clean watch lint
 
 all: clean install build
 
 install:
-	$(info *** run install ***)
+	@echo "*** run install ***"
 	$(NPM) install
 
 build:
-	$(info *** run build ***)
+	-mkdir -p ./src/assets/js
+	-mkdir -p ./src/assets/css
+	@echo "*** run build ***"
 	$(GULP) build
 
 clean:
-	$(info *** run clean ***)
-	rm -rf node_modules
-	cd src/assets && find . -name "*.*" -type f -delete && cd ../../
-
-help:
-	$(info make: install build clean help watch lint)
+	@echo "*** run clean ***"
+	$(RM) -r node_modules
+	-find ./src/assets -name "*.*" -type f -delete
 
 watch:
-	$(info *** run watch ***)
+	@echo "*** run watch ***"
 	$(GULP) watch
 
 lint:
