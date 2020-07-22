@@ -24,4 +24,4 @@ watch:
 	$(GULP) watch
 
 lint:
-	$(GULP) watch lint
+	$(GULP) lint
